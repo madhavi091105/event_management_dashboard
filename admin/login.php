@@ -11,9 +11,10 @@ $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = $_POST["username"] ?? "";
+    $password = $_Post["password"] ?? "";
 
-    if ($username === "") {
-        $error = "Username required";
+    if ($username === "" ) {
+        $error = "Username and password required";
     } else {
         $stmt = $db->prepare("SELECT * FROM admins WHERE username = :username LIMIT 1");
         $stmt->bindParam(":username", $username);
@@ -21,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($stmt->rowCount() === 1) {
             $admin = $stmt->fetch(PDO::FETCH_ASSOC);
-            if (password_verify($password, $admin["password"])) {
+            
 
                 $_SESSION["admin_id"] = $admin["id"];
                 $_SESSION["admin_username"] = $admin["username"];
@@ -29,15 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 header("Location: dashboard.php");
                 exit;
     
-            } else {
-                $error = "Wrong password";
-            }
-            $_SESSION["admin_id"] = $admin["id"];
-            $_SESSION["admin_username"] = $admin["username"];
-
-            header("Location: dashboard.php");
-            exit;
-        } else {
+            
+            
+            
+        }else {
             $error = "Admin not found in database!";
         }
     }
@@ -45,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 
 <!DOCTYPE html>
-<html>
+<h>
 <head>
     <title>Admin Login</title>
     <style>
@@ -71,4 +67,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </form>
     </div>
 </body>
-</html>
+</h
