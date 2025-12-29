@@ -1,11 +1,8 @@
 <?php
-// Path ko theek kiya gaya hai
 require_once "../config/database.php"; 
 
 $database = new Database();
 $db = $database->getConnection();
-
-// Database se active events uthana
 $stmt = $db->prepare("SELECT * FROM events WHERE status = 'active' ORDER BY event_date ASC");
 $stmt->execute();
 $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
