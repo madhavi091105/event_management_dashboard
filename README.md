@@ -4,6 +4,7 @@ A PHP–MySQL based Event Management System with an Admin Dashboard for managing
 The project demonstrates CRUD operations, session-based authentication, and backend integration using PHP.
 
 🚀 Features
+
 🔐 Admin Panel
 
 Admin login (session-based)
@@ -19,6 +20,7 @@ Delete events
 Save events to database
 
 Logout functionality
+
 👤 User Side
 
 View events added by admin
@@ -66,6 +68,8 @@ User event registration
 Pagination & sorting
 
 Deployment on cloud
+
 👩‍💻 Author
 
 Madhavi Chipade
+
